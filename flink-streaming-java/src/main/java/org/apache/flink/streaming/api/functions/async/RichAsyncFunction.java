@@ -32,8 +32,12 @@ import org.apache.flink.api.common.functions.BroadcastVariableInitializer;
 import org.apache.flink.api.common.functions.IterationRuntimeContext;
 import org.apache.flink.api.common.functions.RichFunction;
 import org.apache.flink.api.common.functions.RuntimeContext;
+<<<<<<< HEAD
 import org.apache.flink.api.common.state.AggregatingState;
 import org.apache.flink.api.common.state.AggregatingStateDescriptor;
+=======
+import org.apache.flink.api.common.functions.util.SideInput;
+>>>>>>> beb5c6a... [STREAMLINE] Add Side Input extension
 import org.apache.flink.api.common.state.FoldingState;
 import org.apache.flink.api.common.state.FoldingStateDescriptor;
 import org.apache.flink.api.common.state.ListState;
@@ -187,7 +191,11 @@ public abstract class RichAsyncFunction<IN, OUT> extends AbstractRichFunction im
 		public <UK, UV> MapState<UK, UV> getMapState(MapStateDescriptor<UK, UV> stateProperties) {
 			throw new UnsupportedOperationException("State is not supported in rich async functions.");
 		}
-
+		
+		@Override
+		public <T> List<T> getSideInput(SideInput<T> handle) {
+			throw new UnsupportedOperationException("Side input is not supported in rich async functions.");
+		}
 		@Override
 		public <V, A extends Serializable> void addAccumulator(String name, Accumulator<V, A> accumulator) {
 			throw new UnsupportedOperationException("Accumulators are not supported in rich async functions.");

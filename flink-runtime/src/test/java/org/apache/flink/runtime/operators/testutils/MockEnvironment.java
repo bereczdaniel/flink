@@ -328,8 +328,13 @@ public class MockEnvironment implements Environment {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public TaskEventDispatcher getTaskEventDispatcher() {
 		return taskEventDispatcher;
+=======
+	public int getInputGatesCount() {
+		return inputs.size();
+>>>>>>> beb5c6a... [STREAMLINE] Add Side Input extension
 	}
 
 	@Override

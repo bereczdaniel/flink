@@ -193,7 +193,14 @@ public class DummyEnvironment implements Environment {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public TaskEventDispatcher getTaskEventDispatcher() {
 		throw new UnsupportedOperationException();
 	}
+=======
+	public int getInputGatesCount() {
+		return 0;
+	}
+
+>>>>>>> beb5c6a... [STREAMLINE] Add Side Input extension
 }

@@ -211,5 +211,9 @@ public interface Environment {
 
 	InputGate[] getAllInputGates();
 
+<<<<<<< HEAD
 	TaskEventDispatcher getTaskEventDispatcher();
+=======
+	int getInputGatesCount();
+>>>>>>> beb5c6a... [STREAMLINE] Add Side Input extension
 }

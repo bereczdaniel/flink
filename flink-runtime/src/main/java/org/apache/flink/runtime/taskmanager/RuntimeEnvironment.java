@@ -252,14 +252,18 @@ public class RuntimeEnvironment implements Environment {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void acknowledgeCheckpoint(
 			long checkpointId,
 			CheckpointMetrics checkpointMetrics,
 			TaskStateSnapshot checkpointStateHandles) {
 
+=======
+	public void acknowledgeCheckpoint(long checkpointId, CheckpointMetrics checkpointMetrics, SubtaskState subtaskState) {
+>>>>>>> beb5c6a... [STREAMLINE] Add Side Input extension
 		checkpointResponder.acknowledgeCheckpoint(
-				jobId, executionId, checkpointId, checkpointMetrics,
-				checkpointStateHandles);
+				jobId, executionId, checkpointId,
+				checkpointMetrics, subtaskState);
 	}
 
 	@Override
@@ -270,5 +274,10 @@ public class RuntimeEnvironment implements Environment {
 	@Override
 	public void failExternally(Throwable cause) {
 		this.containingTask.failExternally(cause);
+	}
+
+	@Override
+	public int getInputGatesCount() {
+		return inputGates.length;
 	}
 }
